@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EE465_project</title>
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+html {
+  box-sizing: border-box;
+  margin-top: 60px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+</style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <!-- <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="http://www.dappuniversity.com/free-download" target="_blank">BET</a> -->
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" >BET</a>
+
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+          <a class="nav-link" href="#"><span id="account"></span></a>
+        </li>
+      </ul>
+    </nav>
+    
+  
+ <h2>Just Write Amount to bet and click Enter </h2>
+<!-- <p>Resize the browser window to see the effect.</p> -->
+<br>
+
+<div>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="https://www.clipartwiki.com/clipimg/detail/18-187721_free-silhouette-of-a-person-silhouette-clip-art.png" alt="Jane" style="width:100%">
+        <div class="container">
+          <h2>Jane Doe</h2>
+          <p class="title">CEO & Founder</p>
+          <p class="title">Total Bet So far  :- &emsp;<a href="" id="TotalBet1"></a> Ether </p>
+          <p class="title">Total Bet by Me  :- &emsp;<a href="" id="TotalBet11"></a> Ether </p>
+         
+
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p>example@example.com</p>
+          <!-- <p><button class="button">Bet</button></p> -->
+          <p><form onSubmit="App.Bet(1); return false;">
+                <input id="amount_to_bet1" type="text" class="form-control" placeholder="enter amount to bet in Ether" required>
+                <input type="submit" hidden="" >
+              </form></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="https://www.clipartwiki.com/clipimg/detail/18-187721_free-silhouette-of-a-person-silhouette-clip-art.png" alt="John" style="width:100%">
+        <div class="container">
+          <h2>John Doe</h2>
+          <p class="title">Designer</p>
+          <p class="title">Total Bet So far  :- &emsp;<a href="" id="TotalBet2"></a> Ether </p>
+          <p class="title">Total Bet by Me  :- &emsp;<a href="" id="TotalBet22"></a> Ether </p>
+
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p>example@example.com</p>
+          <!-- <p><button class="button">Bet</button></p> -->
+          <p><form onSubmit="App.Bet(2); return false;">
+                <input id="amount_to_bet2" type="text" class="form-control" placeholder="enter amount to bet in Ether" required>
+                <input type="submit" hidden="" >
+              </form></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container-fluid">
+      <div class="row">
+        <main role="main" class="col-lg-12 d-flex justify-content-center">
+          <div id="loader" class="text-center">
+            <p class="text-center">Loading...</p>
+          </div>
+          <div id="content">
+         <form onSubmit="App.createTask(); return false;">
+              <input id="amount_to_bet" type="text" class="form-control" placeholder="enter amount to bet in Ether" required>
+              <input type="submit" hidden="" >
+            </form>
+            <ul id="taskList" class="list-unstyled">
+              <div class="taskTemplate" class="checkbox" style="display: none">
+                <label>
+                  <input type="checkbox" />
+                  <span class="content">Task content goes here...</span>
+                </label>
+              </div>
+            </ul>
+            <ul id="completedTaskList" class="list-unstyled">
+            </ul>
+          </div>
+        </main>
+      </div>
+    </div> -->
+
+    <!-- <button id="dist_prize" type="button" onclick="App.Distribute_bet()">Distribute the Prizes!</button> -->
+    <div id="winner_id" style="visibility:hidden;" ><form onSubmit="App.Distribute_bet(); return false;">
+                <input  type="text" class="form-control" placeholder="Winner Team" required>
+                <input type="submit" hidden="" >
+              </form>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="js_horse/display_horses.js"></script>
+    <title>Ether-Bet</title>
+
+    <script >var number = 4</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="css_horse/bootstrap.min.css">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="css_horse/tooplate-style.css">                                   <!-- Templatemo style -->
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+    
+    <body>
+        <div class="container">
+            <header class="tm-site-header">
+                <h1 class="tm-site-name">Betting on Horses</h1>
+                <p class="tm-site-description">What Happens on Track stays on Track</p>
+            </header>
+            <div class="tm-main-content">
+                <section class="tm-margin-b-l">
+                    <header>
+                        <h2 class="tm-main-title">Choose Your Horse</h2>    
+                    </header>
+                    <p>You can see the pictures of horses in the grid provided below.<br> The rule is that you can only bet on one horse and can't change it later. Ready for gambling !!</p>
+                    
+                    <div class="tm-gallery" id="horse_gallery">
+
+                        <script>
+                            displayHorses(number)
+                        </script>
+
+                    </div>
+               
+                </section>
+
+            </div>
+
+        <div id="winner_id" style="visibility:hidden;" ><form onSubmit="App.Distribute_bet(winner_id_val.value); return false;">
+                    <input id="winner_id_val" type="text" class="form-control" placeholder="Winner Horse" required>
+                    <input type="submit" hidden="" >
+                  </form>
+        </div>
+
+         <div id="set_bet_id" style="visibility:hidden;"><form onSubmit="App.set_bet_ratios(set_bet_ratios_id.value); return false;">
+                 <input id="set_bet_ratios_id" type="text" class="form-control" placeholder="Gain Ratios per 100 for Horses" required>
+                 <input type="submit" hidden="" >
+               </form>
+         </div>
+
+        </div>
+        
+       
+      
+
+        <!-- load JS files -->
+        <script src="js_horse/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
+        <script src="js_horse/popper.min.js"></script>                <!-- Popper (https://popper.js.org/) -->
+        <script src="js_horse/bootstrap.min.js"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->
+        <script>     
+       
+            $(document).ready(function(){
+                
+                // Update the current year in copyright
+                $('.tm-current-year').text(new Date().getFullYear());
+
+            });
+
+        </script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>           
+    <script src="horse.js"></script>
+
+</body>
+</html>
